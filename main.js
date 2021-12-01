@@ -16,3 +16,14 @@ saveLocalStorageForm.addEventListener('submit', function(event) {
 });
 
 // Challenge 2:
+const numberValue = document.querySelector('#counter');
+let counter = parseInt(localStorage.getItem('value')) || 0;
+counter++;
+localStorage.setItem('value', JSON.stringify(counter));
+if (counter === null) {
+    numberValue.innerText = 'No page loads yet';
+} else {
+    numberValue.innerText = `This page has been loaded ${counter} times`
+};
+
+// Challenge 3:
