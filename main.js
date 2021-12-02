@@ -27,3 +27,19 @@ if (counter === null) {
 };
 
 // Challenge 3:
+const saveListForm = document.querySelector('#saveListForm');
+const inputList = document.querySelector('#inputList');
+const savedList = document.querySelector('#savedList');
+const unsavedList = document.querySelector('#unsaved');
+
+const savedOl = localStorage.getItem('savedOl');
+if (savedOl === null) {
+    unsavedList.innerHTML = 'Nothing saved to your list.';
+} else {
+    savedList.innerHTML = `<li>${savedOl}</li>`;
+}
+
+saveListForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    localStorage.setItem('savedOl', inputList.value);
+});
